@@ -32,15 +32,11 @@ public class CompanyFacadeImpl implements CompanyFacadeInterface {
     }
 
     @Override
-    public Company deleteCompany(int cvr) {
+    public Company deleteCompany(long id) {
         em = emf.createEntityManager();
-        Company c;
-
+        Company c = em.find(Company.class, id);
         try {
             em.getTransaction().begin();
-            Query q = em.createQuery("select c from Company as c where c.cvr = :cvr");
-            q.setParameter("cvr", cvr);
-            c = (Company) q.getResultList().get(0);
             em.remove(c);
             em.getTransaction().commit();
         } finally {
@@ -52,12 +48,9 @@ public class CompanyFacadeImpl implements CompanyFacadeInterface {
     @Override
     public Company updateCompany(Company company) {
         em = emf.createEntityManager();
-        Company c;
+        Company c = em.find(Company.class, company.getId());
         try {
             em.getTransaction().begin();
-            Query q = em.createQuery("select c from Company as c where c.id = :id");
-            q.setParameter("id", company.getId());
-            c = (Company) q.getResultList().get(0);
             c = company;
             em.persist(c);
             em.getTransaction().commit();
@@ -68,7 +61,7 @@ public class CompanyFacadeImpl implements CompanyFacadeInterface {
     }
 
     @Override
-    public List<Company> getAllCompany() {
+    public List<Company> getAllCompanies() {
         em = emf.createEntityManager();
         List<Company> companies = new ArrayList();
         try {

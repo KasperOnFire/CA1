@@ -16,11 +16,11 @@ public interface CompanyFacadeInterface {
 
     public Company createCompany(Company company);
 
-    public Company deleteCompany(int cvr);
+    public Company deleteCompany(long id);
 
     public Company updateCompany(Company company);
 
-    public List<Company> getAllCompany();
+    public List<Company> getAllCompanies();
 
     public Company getCompany(long id);
 
