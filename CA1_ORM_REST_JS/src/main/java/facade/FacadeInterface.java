@@ -3,8 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entity;
+package facade;
 
+import entity.Address;
+import entity.Company;
+import entity.Hobby;
+import entity.Person;
+import entity.Phone;
 import java.util.List;
 
 
