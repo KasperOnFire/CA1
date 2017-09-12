@@ -14,25 +14,33 @@ import javax.persistence.Persistence;
 public class PhoneFacadeImpl implements PhoneFacadeInterface {
 
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("COS5");
-    EntityManager em = emf.createEntityManager();
     
     @Override
     public Phone createPhone(Phone phone) {
-        
+        EntityManager em = emf.createEntityManager();
+        try{     
        em.getTransaction().begin();
        em.persist(phone);
        em.getTransaction().commit();
-       return phone;
+       
+       } finally {
+            em.close();
+        }
+        return phone;
     }
 
     @Override
     public Phone deletePhone(int number) {
-        
+        EntityManager em = emf.createEntityManager();
         Phone phone = em.find(Phone.class, number);
+        try{
  
   em.getTransaction().begin();
   em.remove(phone);
   em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
   
        return phone; 
         
