@@ -1,6 +1,7 @@
 package facade;
 
 import entity.Company;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -31,15 +32,11 @@ public class CompanyFacadeImpl implements CompanyFacadeInterface {
     }
 
     @Override
-    public Company deleteCompany(int cvr) {
+    public Company deleteCompany(long id) {
         em = emf.createEntityManager();
-        Company c;
-
+        Company c = em.find(Company.class, id);
         try {
             em.getTransaction().begin();
-            Query q = em.createQuery("select c from Company as c where c.cvr = :cvr");
-            q.setParameter("cvr", cvr);
-            c = (Company) q.getResultList().get(0);
             em.remove(c);
             em.getTransaction().commit();
         } finally {
@@ -50,17 +47,47 @@ public class CompanyFacadeImpl implements CompanyFacadeInterface {
 
     @Override
     public Company updateCompany(Company company) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        em = emf.createEntityManager();
+        Company c = em.find(Company.class, company.getId());
+        try {
+            em.getTransaction().begin();
+            c = company;
+            em.persist(c);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+        return c;
     }
 
     @Override
-    public List<Company> getCompany(int employeeCount) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Company> getAllCompanies() {
+        em = emf.createEntityManager();
+        List<Company> companies = new ArrayList();
+        try {
+            em.getTransaction().begin();
+            Query q = em.createQuery("Select Company c from Company");
+            companies = q.getResultList();
+
+        } finally {
+            em.close();
+        }
+        return companies;
     }
 
     @Override
-    public Company getCompany(int phone, int cvr) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Company getCompany(long id) {
+        em = emf.createEntityManager();
+        Company c;
+        try {
+
+            Query q = em.createQuery("Select Company c from Company where c.id = :id");
+            q.setParameter("id", id);
+            c = (Company) q.getResultList().get(0);
+        } finally {
+            em.close();
+        }
+        return c;
     }
 
 }
