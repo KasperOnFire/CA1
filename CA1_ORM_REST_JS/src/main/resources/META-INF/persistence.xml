@@ -3,6 +3,12 @@
   <persistence-unit name="COS5" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>entity.InfoEntity</class>
+    <class>entity.Address</class>
+    <class>entity.Phone</class>
+    <class>entity.CityInfo</class>
+    <class>entity.Person</class>
+    <class>entity.Hobby</class>
+    <class>entity.Company</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://139.59.150.170:3306/CA1?zeroDateTimeBehavior=convertToNull"/>
