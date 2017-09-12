@@ -5,10 +5,39 @@
  */
 package facade;
 
-/**
- *
- * @author KnaldeKalle
- */
-public class PhoneFacadeImpl {
+import entity.Phone;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+
+public class PhoneFacadeImpl implements PhoneFacadeInterface {
+
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("COS5");
+    EntityManager em = emf.createEntityManager();
+    
+    @Override
+    public Phone createPhone(Phone phone) {
+        
+       em.getTransaction().begin();
+       em.persist(phone);
+       em.getTransaction().commit();
+       return phone;
+    }
+
+    @Override
+    public Phone deletePhone(int number) {
+        
+        Phone phone = em.find(Phone.class, number);
+ 
+  em.getTransaction().begin();
+  em.remove(phone);
+  em.getTransaction().commit();
+  
+       return phone; 
+        
+    }
+
+   
     
 }

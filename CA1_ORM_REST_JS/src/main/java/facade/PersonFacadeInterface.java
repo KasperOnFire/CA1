@@ -18,7 +18,7 @@ public interface PersonFacadeInterface {
     
     public Person deletePerson(int id);
     
-    public Person updatePerson(Person person);
+    public Person updatePerson(Person person, int id);
      
     public Person getPerson(int phoneNumber);
     
