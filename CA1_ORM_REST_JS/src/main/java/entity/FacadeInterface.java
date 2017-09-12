@@ -7,16 +7,12 @@ package entity;
 
 import java.util.List;
 
-
-
-
 public interface FacadeInterface {
-    
+
     public Person getPerson(int phoneNumber);
-    
+
     public Company getCompany(int phoneNumber, int CVR);
-    
+
     public List<Person> getPersons(Hobby hobby);
-    
-    
+
 }
