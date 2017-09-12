@@ -5,11 +5,15 @@
  */
 package facade;
 
+import entity.Phone;
 
 
-
-public interface FacadeInterface {
+public interface PhoneFacadeInterface {
     
-    public int[] getZipCodes();
-
+    public Phone createPhone(Phone phone);
+    
+    public Phone deletePhone(int number);
+    
+    public Phone updatePhone(Phone phone);
+    
 }
