@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package facade;
+package interfaces;
 
 import entity.Person;
 import java.util.List;
@@ -16,11 +16,13 @@ public interface PersonFacadeInterface {
     
     public Person createPerson(Person person);
     
-    public Person deletePerson(int id);
+    public Person deletePerson(long id);
     
-    public Person updatePerson(Person person, int id);
+    public Person updatePerson(Person person);
      
-    public Person getPerson(int id);
+    public Person getPerson(long id);
+    
+    public List<Person> getAllPersons();
     
     public List<Person> getPersonsHobby(String hobby);
     

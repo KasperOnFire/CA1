@@ -21,6 +21,7 @@ public class Person extends InfoEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     private String firstName;
     private String lastName;
+    
     @ManyToMany
     private List<Hobby> hobbies;
 

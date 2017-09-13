@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package facade;
+package interfaces;
 
 import entity.Phone;
 
@@ -11,6 +11,10 @@ import entity.Phone;
 public interface PhoneFacadeInterface {
     
     public Phone createPhone(Phone phone);
+    
+    public Phone getPhone(long id);
+    
+    public Phone updatePhone(Phone phone);
     
     public Phone deletePhone(int number);
     

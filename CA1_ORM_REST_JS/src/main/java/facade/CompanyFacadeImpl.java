@@ -1,5 +1,6 @@
 package facade;
 
+import interfaces.CompanyFacadeInterface;
 import entity.Company;
 import java.util.ArrayList;
 import java.util.List;
@@ -78,15 +79,8 @@ public class CompanyFacadeImpl implements CompanyFacadeInterface {
     @Override
     public Company getCompany(long id) {
         em = emf.createEntityManager();
-        Company c;
-        try {
-
-            Query q = em.createQuery("Select Company c from Company where c.id = :id");
-            q.setParameter("id", id);
-            c = (Company) q.getResultList().get(0);
-        } finally {
-            em.close();
-        }
+        Company c = em.find(Company.class, id);
+        em.close();
         return c;
     }
 

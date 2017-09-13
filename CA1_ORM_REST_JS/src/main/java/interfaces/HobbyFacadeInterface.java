@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package facade;
+package interfaces;
 
 import entity.Hobby;
 
@@ -12,11 +12,13 @@ import entity.Hobby;
  * @author Anton
  */
 public interface HobbyFacadeInterface {
-    
+
     public Hobby createHobby(Hobby hobby);
-    
-    public Hobby deleteHobbby(String name);
-    
+
+    public Hobby deleteHobbby(long id);
+
     public Hobby updateHobby(Hobby hobby);
-    
+
+    public Hobby findHobby(long id);
+
 }
