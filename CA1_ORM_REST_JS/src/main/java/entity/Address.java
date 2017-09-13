@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Address implements Serializable {
@@ -17,8 +17,8 @@ public class Address implements Serializable {
     private Long id;
     private String street;
     private String additionalInfo;
-    @OneToMany
-    private List<CityInfo> cities;
+    @ManyToOne
+    private CityInfo city;
 
     public Long getId() {
         return id;
@@ -44,13 +44,12 @@ public class Address implements Serializable {
         this.additionalInfo = additionalInfo;
     }
 
-    public List<CityInfo> getCities() {
-        return cities;
+    public CityInfo getCity() {
+        return city;
     }
 
-    public void setCities(List<CityInfo> cities) {
-        this.cities = cities;
+    public void setCity(CityInfo city) {
+        this.city = city;
     }
-    
 
 }

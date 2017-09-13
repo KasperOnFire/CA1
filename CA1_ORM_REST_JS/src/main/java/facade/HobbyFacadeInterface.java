@@ -15,7 +15,7 @@ public interface HobbyFacadeInterface {
     
     public Hobby createHobby(Hobby hobby);
     
-    public Hobby deleteHobbby(String name);
+    public Hobby deleteHobbby(long id);
     
     public Hobby updateHobby(Hobby hobby);
     

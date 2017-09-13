@@ -1,10 +1,12 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class CityInfo implements Serializable {
@@ -15,6 +17,8 @@ public class CityInfo implements Serializable {
     private Long id;
     private int zipCode;
     private String city;
+    @OneToMany(mappedBy = "city")
+    private List<Address> addresses;
 
     public Long getId() {
         return id;
@@ -38,6 +42,14 @@ public class CityInfo implements Serializable {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
     }
 
 }

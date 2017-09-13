@@ -12,11 +12,11 @@ import entity.Address;
  * @author Anton
  */
 public interface AddressFacadeInterface {
-    
+
     public Address createAddress(Address address);
-    
-    public Address deleteAddress(String street, String additionalInfo);
-    
+
+    public Address deleteAddress(long id);
+
     public Address updateAddress(Address address);
-    
+
 }
