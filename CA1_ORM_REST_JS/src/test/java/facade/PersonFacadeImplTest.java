@@ -7,7 +7,6 @@ package facade;
 
 import entity.Person;
 import interfaces.PersonFacadeInterface;
-import java.util.List;
 import java.util.Random;
 import org.junit.After;
 import org.junit.AfterClass;
