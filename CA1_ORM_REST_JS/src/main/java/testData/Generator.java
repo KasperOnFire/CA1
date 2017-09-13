@@ -1,13 +1,83 @@
 package testData;
 
+import entity.InfoEntity;
+import entity.Address;
+import entity.Person;
+import entity.Hobby;
+import entity.Company;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 public class Generator
 {
-    String[] firstName = {Thomas, Peter, Anders, Mads, Michael, Signe, Lone, Hanne, Janne, Louise};
-    String[] lastName = {Andersen, Hansen, Thomsen, Madsen, Petersen, Jensen, Smith, Poulsen, Mchaelsen, Jansen};
-    String[] erhverv = {VVS, Tømrer, Smed, Elektriker, Murer, Maler};
-    String[] hobbies = {Tennis, Fodbold, Skydning, Skoleskyderi, Kunstmaler, Amagermanden-wannabe};
-    String[] streets = {Langgade, Kortgade, Gadegade, Skolegade, Kristengade, Jødegade, Muslimgade};
+
+    Random r = new Random();
+
+    String[] firstName =
+    {
+        "Thomas", "Peter", "Anders", "Mads", "Michael", "Signe", "Lone", "Hanne", "Janne", "Louise"
+    };
+    String[] lastName =
+    {
+        "Andersen", "Hansen", "Thomsen", "Madsen", "Petersen", "Jensen", "Smith", "Poulsen", "Michaelsen", "Jansen"
+    };
+    String[] erhverv =
+    {
+        "VVS", "Tømrer", "Smed", "Elektriker", "Murer", "Maler"
+    };
+    String[] hobbies =
+    {
+        "Tennis", "Fodbold", "Skydning", "Skoleskyderi", "Kunstmaler", "Amagermanden - wannabe"
+    };
+    String[] streets =
+    {
+        "Langgade", "Kortgade", "Gadegade", "Skolegade", "Kristengade", "Jødegade", "Muslimgade"
+    };
     
+    Address genAddress()
+    {
+        Address a = new Address();
+        a.setStreet(streets[r.nextInt(7)]);
+        return a;
+    }
+
+    List<Hobby> genHobbies()
+    {
+        long i = 0;
+        ArrayList<Hobby> hList = new ArrayList();
+        Hobby h = new Hobby();
+        for (int j = 0; j < hobbies.length; j++)
+        {
+            h.setName(hobbies[r.nextInt(6)]);
+            h.setDescription("null");
+            h.setId(i);
+            i++;
+            hList.add(h);
+        }
+        return hList;
+    }
+
+    Person genPerson(List<Hobby> hList, Address a)
+    {
+        Person p = new Person();
+        String fName = firstName[r.nextInt(10)];
+        p.setFirstName(fName);
+        String lName = lastName[r.nextInt(10)];
+        p.setLastName(lName);
+        p.setHobbies(hList);
+        p.setAddress(a);
+        return p;
+    }
     
+    Company genCompany(Address a)
+    {
+        Company c = new Company();
+        c.setName(firstName[r.nextInt(10)]+lastName[r.nextInt(10)]+erhverv[r.nextInt(6)]);
+        c.setCvr(r.nextInt(800)+100);
+        c.setNumEmployees(r.nextInt(100)+1);
+        c.setMarketValue(r.nextInt(10000)+1);
+        c.setAddress(a);
+        return c;
     }
 }
