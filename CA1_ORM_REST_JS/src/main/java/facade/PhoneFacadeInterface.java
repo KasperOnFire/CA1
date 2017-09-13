@@ -14,6 +14,4 @@ public interface PhoneFacadeInterface {
     
     public Phone deletePhone(int number);
     
-    public Phone updatePhone(Phone phone);
-    
 }
