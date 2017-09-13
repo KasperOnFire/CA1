@@ -42,6 +42,7 @@ public class PersonResource {
     public PersonResource() {
         
         persons = pfi.getAllPersons();
+        
               
     }
 
