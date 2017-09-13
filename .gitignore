@@ -55,3 +55,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 /CA1_ORM_REST_JS/nbproject/
+persistence.xml
