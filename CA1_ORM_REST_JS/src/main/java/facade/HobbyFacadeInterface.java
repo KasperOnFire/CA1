@@ -12,11 +12,13 @@ import entity.Hobby;
  * @author Anton
  */
 public interface HobbyFacadeInterface {
-    
+
     public Hobby createHobby(Hobby hobby);
-    
+
     public Hobby deleteHobbby(long id);
-    
+
     public Hobby updateHobby(Hobby hobby);
-    
+
+    public Hobby findHobby(long id);
+
 }

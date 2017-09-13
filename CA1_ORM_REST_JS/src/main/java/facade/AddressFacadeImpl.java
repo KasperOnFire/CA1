@@ -28,6 +28,14 @@ public class AddressFacadeImpl implements AddressFacadeInterface {
     }
 
     @Override
+    public Address findAddress(long id) {
+        em = emf.createEntityManager();
+        Address a = em.find(Address.class, id);
+        em.close();
+        return a;
+    }
+
+    @Override
     public Address deleteAddress(long id) {
         em = emf.createEntityManager();
         Address a = em.find(Address.class, id);

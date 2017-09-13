@@ -58,4 +58,12 @@ public class HobbyFacadeImpl implements HobbyFacadeInterface {
         return h;
     }
 
+    @Override
+    public Hobby findHobby(long id) {
+        em = emf.createEntityManager();
+        Hobby h = em.find(Hobby.class, id);
+        em.close();
+        return h;
+    }
+
 }

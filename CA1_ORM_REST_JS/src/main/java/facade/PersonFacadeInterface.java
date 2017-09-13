@@ -16,11 +16,11 @@ public interface PersonFacadeInterface {
     
     public Person createPerson(Person person);
     
-    public Person deletePerson(int id);
+    public Person deletePerson(long id);
     
-    public Person updatePerson(Person person, int id);
+    public Person updatePerson(Person person);
      
-    public Person getPerson(int id);
+    public Person getPerson(long id);
     
     public List<Person> getPersonsHobby(String hobby);
     

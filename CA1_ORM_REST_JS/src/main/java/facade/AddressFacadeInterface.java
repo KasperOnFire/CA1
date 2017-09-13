@@ -15,6 +15,8 @@ public interface AddressFacadeInterface {
 
     public Address createAddress(Address address);
 
+    public Address findAddress(long id);
+
     public Address deleteAddress(long id);
 
     public Address updateAddress(Address address);

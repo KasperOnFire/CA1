@@ -12,6 +12,10 @@ public interface PhoneFacadeInterface {
     
     public Phone createPhone(Phone phone);
     
+    public Phone getPhone(long id);
+    
+    public Phone updatePhone(Phone phone);
+    
     public Phone deletePhone(int number);
     
 }
