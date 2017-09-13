@@ -13,21 +13,15 @@ import java.util.List;
  * @author Anton
  */
 public interface PersonFacadeInterface {
-    
+
     public Person createPerson(Person person);
-    
+
     public Person deletePerson(long id);
-    
+
     public Person updatePerson(Person person);
-     
+
     public Person getPerson(long id);
-    
+
     public List<Person> getAllPersons();
-    
-    public List<Person> getPersonsHobby(String hobby);
-    
-    public List<Person> getPersonsCity(String city, int zipCode);
-    
-    public int getPersonsHobbyCount(String hobby);
-    
+
 }

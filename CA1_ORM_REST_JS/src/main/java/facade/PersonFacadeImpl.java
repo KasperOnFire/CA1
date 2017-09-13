@@ -85,23 +85,4 @@ public class PersonFacadeImpl implements PersonFacadeInterface {
         }
     }
 
-    @Override
-    public List<Person> getPersonsHobby(String hobby) {
-        Query q = em.createQuery("SELECT p FROM Person p WHERE p.hobby = :hobby");
-        q.setParameter("hobby", hobby);
-        List<Person> hobbyList = q.getResultList();
-        return hobbyList;
-
-    }
-
-    @Override
-    public List<Person> getPersonsCity(String city, int zipCode) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int getPersonsHobbyCount(String hobby) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }
