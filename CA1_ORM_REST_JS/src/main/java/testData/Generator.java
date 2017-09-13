@@ -36,6 +36,20 @@ public class Generator
         "Langgade", "Kortgade", "Gadegade", "Skolegade", "Kristengade", "Jødegade", "Muslimgade"
     };
     
+    void generate(int i)
+    {
+        String data;
+        List<Hobby> hList = genHobbies();
+        ArrayList<Person> pList = new ArrayList();
+        ArrayList<Company> cList = new ArrayList();
+        for(int j=0;j<i;j++)
+        {
+            Address a = genAddress();
+            pList.add(genPerson(hList,a));
+            cList.add(genCompany(a));
+        }
+    }
+    
     Address genAddress()
     {
         Address a = new Address();
@@ -46,7 +60,7 @@ public class Generator
     List<Hobby> genHobbies()
     {
         long i = 0;
-        ArrayList<Hobby> hList = new ArrayList();
+        List<Hobby> hList = new ArrayList();
         Hobby h = new Hobby();
         for (int j = 0; j < hobbies.length; j++)
         {
