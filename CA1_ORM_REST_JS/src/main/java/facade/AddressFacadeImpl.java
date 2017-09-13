@@ -1,5 +1,6 @@
 package facade;
 
+import interfaces.AddressFacadeInterface;
 import entity.Address;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

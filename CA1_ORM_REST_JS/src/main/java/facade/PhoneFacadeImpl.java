@@ -5,6 +5,7 @@
  */
 package facade;
 
+import interfaces.PhoneFacadeInterface;
 import entity.Phone;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

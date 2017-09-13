@@ -5,6 +5,7 @@
  */
 package facade;
 
+import interfaces.PersonFacadeInterface;
 import entity.Person;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -71,6 +72,17 @@ public class PersonFacadeImpl implements PersonFacadeInterface {
         Person p = em.find(Person.class, id);
         em.close();
         return p;
+    }
+
+    @Override
+    public List<Person> getAllPersons() {
+        em = emf.createEntityManager();
+        try {
+            Query q = em.createNamedQuery("Person.findAll");
+            return q.getResultList();
+        } finally {
+            em.close();
+        }
     }
 
     @Override

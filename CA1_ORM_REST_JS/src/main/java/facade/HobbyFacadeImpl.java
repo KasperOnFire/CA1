@@ -1,5 +1,6 @@
 package facade;
 
+import interfaces.HobbyFacadeInterface;
 import entity.Company;
 import entity.Hobby;
 import javax.persistence.EntityManager;

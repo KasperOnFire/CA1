@@ -1,5 +1,6 @@
 package facade;
 
+import interfaces.CompanyFacadeInterface;
 import entity.Company;
 import java.util.ArrayList;
 import java.util.List;
