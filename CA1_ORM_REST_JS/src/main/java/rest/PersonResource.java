@@ -9,8 +9,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import entity.Person;
 import facade.PersonFacadeImpl;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -18,7 +18,6 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 
@@ -27,13 +26,13 @@ import javax.ws.rs.core.MediaType;
  *
  * @author KnaldeKalle
  */
-@Path("person/complete")
+@Path("person")
 public class PersonResource {
 
     @Context
     private UriInfo context;
     private static Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    private static Map<Long, Person> persons = new HashMap();
+    private static List<Person> persons = new ArrayList<Person>();
     private static int nextId = 0;
     private PersonFacadeImpl pfi = new PersonFacadeImpl();
 
@@ -42,9 +41,8 @@ public class PersonResource {
      */
     public PersonResource() {
         
-        
-        
-        
+        persons = pfi.getAllPersons();
+              
     }
 
     /**
@@ -54,7 +52,7 @@ public class PersonResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getJson() {
-        return gson.toJson(persons.values());
+        return gson.toJson(persons);
     }
     
     @GET
@@ -72,7 +70,7 @@ public class PersonResource {
     public String postJson(String content) {
         
         Person p = gson.fromJson(content, Person.class);
-        persons.put(p.getId(),p);
+        persons.add(p);
               
         return gson.toJson(p);
         
