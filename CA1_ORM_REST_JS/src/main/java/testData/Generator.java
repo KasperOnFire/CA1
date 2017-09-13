@@ -1,6 +1,7 @@
 package testData;
 
 import entity.InfoEntity;
+import entity.Phone;
 import entity.Address;
 import entity.Person;
 import entity.Hobby;
@@ -67,6 +68,11 @@ public class Generator
         p.setLastName(lName);
         p.setHobbies(hList);
         p.setAddress(a);
+        Phone ph = new Phone();
+        ph.setNumber(""+r.nextInt(100000)+90000);
+        ArrayList<Phone> pL = new ArrayList<Phone>();
+        pL.add(ph);
+        p.setPhone(pL);
         return p;
     }
     
@@ -78,6 +84,11 @@ public class Generator
         c.setNumEmployees(r.nextInt(100)+1);
         c.setMarketValue(r.nextInt(10000)+1);
         c.setAddress(a);
+        Phone ph = new Phone();
+        ph.setNumber(""+r.nextInt(100000)+90000);
+        ArrayList<Phone> pL = new ArrayList<Phone>();
+        pL.add(ph);
+        c.setPhone(pL);
         return c;
     }
 }
