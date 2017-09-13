@@ -11,6 +11,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+/**
+ *
+ * @author Kasper RB
+ */
 public class PhoneFacadeImpl implements PhoneFacadeInterface {
 
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("COS5");
