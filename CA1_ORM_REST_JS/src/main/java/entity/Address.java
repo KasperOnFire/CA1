@@ -40,6 +40,11 @@ public class Address implements Serializable {
         return additionalInfo;
     }
 
+    /**
+     *
+     * @param additionalInfo
+     * additionalInfo consists of things such as building number and floor.
+     */
     public void setAdditionalInfo(String additionalInfo) {
         this.additionalInfo = additionalInfo;
     }
@@ -48,6 +53,11 @@ public class Address implements Serializable {
         return city;
     }
 
+    /**
+     *
+     * @param city
+     * This inserts a CityInfo object to track which city we are in.
+     */
     public void setCity(CityInfo city) {
         this.city = city;
     }

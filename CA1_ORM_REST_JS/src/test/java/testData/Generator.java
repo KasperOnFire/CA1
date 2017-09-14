@@ -13,14 +13,34 @@ public class Generator {
 
     private Random r = new Random();
 
+    /**
+     * ArrayList containing persons.
+     */
     public ArrayList<Person> pList = new ArrayList();
+
+    /**
+     * ArrayList containing companies.
+     */
     public ArrayList<Company> cList = new ArrayList();
+
+    /**
+     * ArrayList containing all hobbies. Currently every test person gets assigned all the hobbies.
+     * Hobbies currently only have name, description, and id.
+     */
     public ArrayList<Hobby> hList = new ArrayList();
 
+    /**
+     * Runs generation of data for testing. Set to generate 10 people and 
+     * 10 companies at the moment. Can be changed as necessary.
+     */
     public Generator() {
-        generate(10);
+        generatePerson(10);
+        generateCompany(10);
     }
-
+    
+    /**
+    * String arrays containing names and such for generating test data.
+    */
     private String[] firstName
             = {
                 "Thomas", "Peter", "Anders", "Mads", "Michael", "Signe", "Lone", "Hanne", "Janne", "Louise"
@@ -42,11 +62,23 @@ public class Generator {
                 "Langgade", "Kortgade", "Gadegade", "Skolegade", "Kristengade", "Jødegade", "Muslimgade"
             };
 
-    public void generate(int i) {
+    /**
+     *
+     * @param generate
+     * Methods to generate persons and companies for testing purposes.
+     */
+    public void generatePerson(int i) {
         hList = genHobbies();
         for (int j = 0; j < i; j++) {
             Address a = genAddress();
             pList.add(genPerson(hList, a));
+        }
+    }
+    
+    public void generateCompany(int i) {
+        hList = genHobbies();
+        for (int j = 0; j < i; j++) {
+            Address a = genAddress();
             cList.add(genCompany(a));
         }
     }
