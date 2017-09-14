@@ -50,6 +50,11 @@ public class CityInfo implements Serializable {
         return addresses;
     }
 
+    /**
+     *
+     * @param addresses
+     * A List of addresses in the current city.
+     */
     public void setAddresses(List<Address> addresses) {
         this.addresses = addresses;
     }
