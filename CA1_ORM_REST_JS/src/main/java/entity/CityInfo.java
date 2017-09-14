@@ -3,6 +3,7 @@ package entity;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,26 +18,17 @@ public class CityInfo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private int zipCode;
+    private Long zip;
     private String city;
     @OneToMany(mappedBy = "city", cascade = CascadeType.PERSIST)
     private List<Address> addresses;
 
-    public Long getId() {
-        return id;
+    public Long getZip() {
+        return zip;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public int getZipCode() {
-        return zipCode;
-    }
-
-    public void setZipCode(int zipCode) {
-        this.zipCode = zipCode;
+    public void setZip(Long zip) {
+        this.zip = zip;
     }
 
     public String getCity() {

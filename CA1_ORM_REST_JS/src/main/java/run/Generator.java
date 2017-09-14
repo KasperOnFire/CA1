@@ -17,6 +17,8 @@ public class Generator {
     public ArrayList<Company> cList = new ArrayList();
     public ArrayList<Hobby> hList = new ArrayList();
 
+    long id = 0;
+
     public Generator(int count) {
         generate(count);
     }
@@ -72,9 +74,9 @@ public class Generator {
     }
 
     private Person genPerson(List<Hobby> hList, Address a) {
-        long id = 0 + pList.size();
         Person p = new Person();
         p.setId(id);
+        id++;
         String fName = firstName[r.nextInt(10)];
         p.setFirstName(fName);
         String lName = lastName[r.nextInt(10)];
@@ -90,9 +92,9 @@ public class Generator {
     }
 
     private Company genCompany(Address a) {
-        long id = 0 + cList.size();
         Company c = new Company();
         c.setId(id);
+        id++;
         c.setName(firstName[r.nextInt(10)] + lastName[r.nextInt(10)] + erhverv[r.nextInt(6)]);
         c.setCvr(r.nextInt(800) + 100);
         c.setNumEmployees(r.nextInt(100) + 1);
