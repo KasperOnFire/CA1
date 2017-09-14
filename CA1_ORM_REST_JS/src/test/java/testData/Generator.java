@@ -1,6 +1,5 @@
 package testData;
 
-import entity.InfoEntity;
 import entity.Phone;
 import entity.Address;
 import entity.Person;
@@ -18,8 +17,10 @@ public class Generator {
     public ArrayList<Company> cList = new ArrayList();
     public ArrayList<Hobby> hList = new ArrayList();
 
-    public Generator() {
-        generate(10);
+    long id = 0;
+
+    public Generator(int count) {
+        generate(count);
     }
 
     private String[] firstName
@@ -59,7 +60,7 @@ public class Generator {
     }
 
     private ArrayList<Hobby> genHobbies() {
-        long i = 0;
+        long i = 0 + hList.size();
         ArrayList<Hobby> hList = new ArrayList();
         Hobby h = new Hobby();
         for (int j = 0; j < hobbies.length; j++) {
@@ -73,9 +74,9 @@ public class Generator {
     }
 
     private Person genPerson(List<Hobby> hList, Address a) {
-        long id = 0 + pList.size();
         Person p = new Person();
         p.setId(id);
+        id++;
         String fName = firstName[r.nextInt(10)];
         p.setFirstName(fName);
         String lName = lastName[r.nextInt(10)];
@@ -92,6 +93,8 @@ public class Generator {
 
     private Company genCompany(Address a) {
         Company c = new Company();
+        c.setId(id);
+        id++;
         c.setName(firstName[r.nextInt(10)] + lastName[r.nextInt(10)] + erhverv[r.nextInt(6)]);
         c.setCvr(r.nextInt(800) + 100);
         c.setNumEmployees(r.nextInt(100) + 1);
@@ -99,9 +102,10 @@ public class Generator {
         c.setAddress(a);
         Phone ph = new Phone();
         ph.setNumber("" + r.nextInt(100000) + 90000);
-        ArrayList<Phone> pL = new ArrayList<Phone>();
-        pL.add(ph);
-        c.setPhone(pL);
+        ph.setDescription("New phoneNumber");
+        ArrayList<Phone> pl = new ArrayList<Phone>();
+        pl.add(ph);
+        c.setPhone(pl);
         return c;
     }
 }

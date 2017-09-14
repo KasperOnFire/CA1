@@ -2,6 +2,7 @@ package entity;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
@@ -21,7 +22,7 @@ public class Person extends InfoEntity implements Serializable {
     private String firstName;
     private String lastName;
     
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST)
     private List<Hobby> hobbies;
 
     public String getFirstName() {
@@ -44,6 +45,11 @@ public class Person extends InfoEntity implements Serializable {
         return hobbies;
     }
 
+    /**
+     * 
+     * @param hobbies 
+     * A List containing all hobbies assigned to the person.
+     */
     public void setHobbies(List<Hobby> hobbies) {
         this.hobbies = hobbies;
     }
