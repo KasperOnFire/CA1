@@ -1,0 +1,39 @@
+ /* Remove the navbar's default margin-bottom and rounded borders */  
+    .navbar { 
+      margin-bottom: 0; 
+      border-radius: 0; 
+      background-color: #004687; 
+    } 
+     
+    
+    /* Add a gray background color and some padding to the footer */ 
+    footer { 
+      background-color: #004687; 
+      padding: 14px; 
+      color: #f2f2f2; 
+      position:fixed; 
+    bottom:0; 
+    z-index:999999; 
+                width: 100%; 
+    } 
+ 
+     
+  .carousel-inner img { 
+      width: 100%; /* Set width to 100% */ 
+      margin: auto; 
+      min-height:200px; 
+  } 
+ 
+  /* Hide the carousel text when the screen is less than 600 pixels wide */ 
+  @media (max-width: 600px) { 
+    .carousel-caption { 
+      display: none;  
+    } 
+  } 
+   
+  #coolID{ 
+      padding: 0; 
+        border: none; 
+background: none; 
+width: 100%; 
+  }
