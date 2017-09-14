@@ -66,6 +66,11 @@ public class PersonResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String getContactAll() {
         ArrayList<Person> per1 = (ArrayList<Person>) pfi.getAllPersons();
+        
+        if(per1 == null){
+           throw new WebApplicationException(Response.Status.NOT_FOUND);
+        }
+        
         ArrayList<Person> personsContact = new ArrayList();
         for (Person op : per1) {
             Person p = new Person();
@@ -85,6 +90,9 @@ public class PersonResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String getContactFromId(@PathParam("id") int id) {
         Person op = pfi.getPerson(id);
+        if(op == null){
+           throw new WebApplicationException(Response.Status.NOT_FOUND);
+        }
         Person p = new Person();
         p.setId(op.getId());
         p.setFirstName(op.getFirstName());
@@ -100,6 +108,9 @@ public class PersonResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String postJson(String content) {
         Person p = gson.fromJson(content, Person.class);
+        if(p == null){
+           throw new WebApplicationException(Response.Status.NOT_FOUND);
+        }
         pfi.createPerson(p);
         return gson.toJson(p);
     }
