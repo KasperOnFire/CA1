@@ -14,28 +14,23 @@ import javax.persistence.Table;
 public class CityInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private int zipCode;
+    private int zip;
     private String city;
+    
     @OneToMany(mappedBy = "city")
     private List<Address> addresses;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+   
 
     public int getZipCode() {
-        return zipCode;
+        return zip;
     }
 
     public void setZipCode(int zipCode) {
-        this.zipCode = zipCode;
+        this.zip = zipCode;
     }
 
     public String getCity() {
