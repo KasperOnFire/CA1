@@ -10,6 +10,7 @@ import com.google.gson.GsonBuilder;
 import entity.Person;
 import facade.PersonFacadeImpl;
 import java.util.ArrayList;
+import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -18,7 +19,9 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
  * REST Web Service
@@ -38,7 +41,12 @@ public class PersonResource {
     @Path("complete/")
     @Produces(MediaType.APPLICATION_JSON)
     public String getJson() {
-        return gson.toJson(pfi.getAllPersons());
+        List<Person> pl = pfi.getAllPersons();
+        if(pl == null){
+            throw new WebApplicationException();
+        }
+        
+        return gson.toJson(pl);
     }
 
     @GET
@@ -46,6 +54,10 @@ public class PersonResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String getByIdJson(@PathParam("id") int id) {
         Person p = pfi.getPerson(id);
+        
+        if(p == null){
+           throw new WebApplicationException(Response.Status.NOT_FOUND);
+        }
         return gson.toJson(p);
     }
 
