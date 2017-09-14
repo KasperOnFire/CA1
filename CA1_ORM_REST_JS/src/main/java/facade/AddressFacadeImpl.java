@@ -6,6 +6,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+/**
+ *
+ * @author Kasper RB
+ */
 public class AddressFacadeImpl implements AddressFacadeInterface {
 
     private static EntityManagerFactory emf;

@@ -12,12 +12,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "hobby")
-@NamedQueries({
-    @NamedQuery(name = "Hobby.findAll", query = "SELECT h FROM Hobby h")
-    , @NamedQuery(name = "Hobby.findById", query = "SELECT h FROM Hobby h WHERE h.id = :id")
-    , @NamedQuery(name = "Hobby.findByName", query = "SELECT h FROM Hobby h WHERE h.firstname = :firstname")
-    , @NamedQuery(name = "Hobby.findByDescription", query = "SELECT s FROM Hobby h WHERE h.lastname = :lastname")})
 public class Hobby implements Serializable {
 
     private static final long serialVersionUID = 1L;

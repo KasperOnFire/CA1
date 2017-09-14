@@ -9,6 +9,10 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+/**
+ *
+ * @author Kasper RB
+ */
 public class CompanyFacadeImpl implements CompanyFacadeInterface {
 
     private static EntityManagerFactory emf;
