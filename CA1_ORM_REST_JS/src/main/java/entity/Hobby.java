@@ -51,6 +51,11 @@ public class Hobby implements Serializable {
         return persons;
     }
 
+    /**
+     * 
+     * @param persons 
+     * A List containing all persons with a specific hobby.
+     */
     public void setPersons(List<Person> persons) {
         this.persons = persons;
     }
