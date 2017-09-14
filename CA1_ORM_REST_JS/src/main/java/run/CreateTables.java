@@ -12,7 +12,7 @@ public class CreateTables {
 
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("COS5");
-        EntityManager em = emf.createEntityManager();    
+        EntityManager em = emf.createEntityManager();
 
     }
 
