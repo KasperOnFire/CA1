@@ -53,6 +53,11 @@ public class InfoEntity implements Serializable {
         return phone;
     }
 
+    /**
+     * 
+     * @param phone 
+     * A List of all phone numbers assigned to the entity.
+     */
     public void setPhone(List<Phone> phone) {
         this.phone = phone;
     }

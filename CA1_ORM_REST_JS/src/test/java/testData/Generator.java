@@ -10,10 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/**
- *
- * @author Kristian
- */
 public class Generator {
 
     private Random r = new Random();
@@ -39,7 +35,8 @@ public class Generator {
      * 10 companies at the moment. Can be changed as necessary.
      */
     public Generator() {
-        generate(10);
+        generatePerson(10);
+        generateCompany(10);
     }
     
     /**
@@ -68,13 +65,21 @@ public class Generator {
 
     /**
      *
-     * @param i
+     * @param generate
+     * Methods to generate persons and companies for testing purposes.
      */
-    public void generate(int i) {
+    public void generatePerson(int i) {
         hList = genHobbies();
         for (int j = 0; j < i; j++) {
             Address a = genAddress();
             pList.add(genPerson(hList, a));
+        }
+    }
+    
+    public void generateCompany(int i) {
+        hList = genHobbies();
+        for (int j = 0; j < i; j++) {
+            Address a = genAddress();
             cList.add(genCompany(a));
         }
     }
