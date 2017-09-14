@@ -78,7 +78,7 @@ public class PersonFacadeImpl implements PersonFacadeInterface {
     public List<Person> getAllPersons() {
         em = emf.createEntityManager();
         try {
-            Query q = em.createNamedQuery("Person.findAll");
+            Query q = em.createQuery("Select p from Person p");
             return q.getResultList();
         } finally {
             em.close();
