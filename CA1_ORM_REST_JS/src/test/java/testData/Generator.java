@@ -1,6 +1,5 @@
 package testData;
 
-import entity.InfoEntity;
 import entity.Phone;
 import entity.Address;
 import entity.Person;
@@ -14,34 +13,16 @@ public class Generator {
 
     private Random r = new Random();
 
-    /**
-     * ArrayList containing persons.
-     */
     public ArrayList<Person> pList = new ArrayList();
-
-    /**
-     * ArrayList containing companies.
-     */
     public ArrayList<Company> cList = new ArrayList();
-
-    /**
-     * ArrayList containing all hobbies. Currently every test person gets assigned all the hobbies.
-     * Hobbies currently only have name, description, and id.
-     */
     public ArrayList<Hobby> hList = new ArrayList();
 
-    /**
-     * Runs generation of data for testing. Set to generate 10 people and 
-     * 10 companies at the moment. Can be changed as necessary.
-     */
-    public Generator() {
-        generatePerson(10);
-        generateCompany(10);
+    long id = 0;
+
+    public Generator(int count) {
+        generate(count);
     }
-    
-    /**
-    * String arrays containing names and such for generating test data.
-    */
+
     private String[] firstName
             = {
                 "Thomas", "Peter", "Anders", "Mads", "Michael", "Signe", "Lone", "Hanne", "Janne", "Louise"
@@ -63,23 +44,11 @@ public class Generator {
                 "Langgade", "Kortgade", "Gadegade", "Skolegade", "Kristengade", "Jødegade", "Muslimgade"
             };
 
-    /**
-     *
-     * @param generate
-     * Methods to generate persons and companies for testing purposes.
-     */
-    public void generatePerson(int i) {
+    public void generate(int i) {
         hList = genHobbies();
         for (int j = 0; j < i; j++) {
             Address a = genAddress();
             pList.add(genPerson(hList, a));
-        }
-    }
-    
-    public void generateCompany(int i) {
-        hList = genHobbies();
-        for (int j = 0; j < i; j++) {
-            Address a = genAddress();
             cList.add(genCompany(a));
         }
     }
@@ -91,7 +60,7 @@ public class Generator {
     }
 
     private ArrayList<Hobby> genHobbies() {
-        long i = 0;
+        long i = 0 + hList.size();
         ArrayList<Hobby> hList = new ArrayList();
         Hobby h = new Hobby();
         for (int j = 0; j < hobbies.length; j++) {
@@ -105,9 +74,9 @@ public class Generator {
     }
 
     private Person genPerson(List<Hobby> hList, Address a) {
-        long id = 0 + pList.size();
         Person p = new Person();
         p.setId(id);
+        id++;
         String fName = firstName[r.nextInt(10)];
         p.setFirstName(fName);
         String lName = lastName[r.nextInt(10)];
@@ -124,6 +93,8 @@ public class Generator {
 
     private Company genCompany(Address a) {
         Company c = new Company();
+        c.setId(id);
+        id++;
         c.setName(firstName[r.nextInt(10)] + lastName[r.nextInt(10)] + erhverv[r.nextInt(6)]);
         c.setCvr(r.nextInt(800) + 100);
         c.setNumEmployees(r.nextInt(100) + 1);
@@ -131,9 +102,10 @@ public class Generator {
         c.setAddress(a);
         Phone ph = new Phone();
         ph.setNumber("" + r.nextInt(100000) + 90000);
-        ArrayList<Phone> pL = new ArrayList<Phone>();
-        pL.add(ph);
-        c.setPhone(pL);
+        ph.setDescription("New phoneNumber");
+        ArrayList<Phone> pl = new ArrayList<Phone>();
+        pl.add(ph);
+        c.setPhone(pl);
         return c;
     }
 }

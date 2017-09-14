@@ -38,7 +38,7 @@ public class PersonFacadeImplTest {
 
     @Before
     public void setUp() {
-        instance = new PersonTestFacade(new Generator());
+        instance = new PersonTestFacade(new Generator(10));
     }
 
     @After
