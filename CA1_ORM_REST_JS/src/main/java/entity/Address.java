@@ -17,7 +17,7 @@ public class Address implements Serializable {
     private Long id;
     private String street;
     private String additionalInfo;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     private CityInfo city;
 
     public Long getId() {
@@ -42,8 +42,8 @@ public class Address implements Serializable {
 
     /**
      *
-     * @param additionalInfo
-     * additionalInfo consists of things such as building number and floor.
+     * @param additionalInfo additionalInfo consists of things such as building
+     * number and floor.
      */
     public void setAdditionalInfo(String additionalInfo) {
         this.additionalInfo = additionalInfo;
@@ -55,8 +55,7 @@ public class Address implements Serializable {
 
     /**
      *
-     * @param city
-     * This inserts a CityInfo object to track which city we are in.
+     * @param city This inserts a CityInfo object to track which city we are in.
      */
     public void setCity(CityInfo city) {
         this.city = city;
