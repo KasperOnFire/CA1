@@ -10,6 +10,7 @@ import com.google.gson.GsonBuilder;
 import entity.Person;
 import facade.PersonFacadeImpl;
 import java.util.ArrayList;
+import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -53,7 +54,7 @@ public class PersonResource {
     @Path("contactinfo")
     @Produces(MediaType.APPLICATION_JSON)
     public String getContactAll() {
-        ArrayList<Person> per1 = (ArrayList<Person>) pfi.getAllPersons();
+        List<Person> per1 = pfi.getAllPersons();
         ArrayList<Person> personsContact = new ArrayList();
         for (Person op : per1) {
             Person p = new Person();
@@ -62,7 +63,7 @@ public class PersonResource {
             p.setLastName(op.getLastName());
             p.setEmail(op.getEmail());
             p.setPhone(op.getPhone());
-            p.setAddress(op.getAddress());
+           // p.setAddress(op.getAddress());
             personsContact.add(p);
         }
         return gson.toJson(personsContact);
