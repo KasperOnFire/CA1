@@ -9,6 +9,8 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 /**
+ * 
+ * Facade for persisting and removing entities of the Person class
  *
  * @author KnaldeKalle
  */
@@ -16,6 +18,7 @@ public class PersonFacadeImpl implements PersonFacadeInterface {
 
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("COS5");
     EntityManager em;
+
 
     @Override
     public Person createPerson(Person person) {

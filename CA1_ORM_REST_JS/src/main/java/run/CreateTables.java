@@ -6,6 +6,8 @@ import javax.persistence.Persistence;
 
 /**
  *
+ * This class populates the database with empty tables on manual runtime.
+ *
  * @author Kasper
  */
 public class CreateTables {

@@ -7,7 +7,6 @@ package rest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import entity.Company;
 import entity.Person;
 import facade.PersonFacadeImpl;
 import java.util.ArrayList;
