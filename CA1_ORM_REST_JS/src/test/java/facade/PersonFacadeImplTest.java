@@ -74,16 +74,16 @@ public class PersonFacadeImplTest {
     /**
      * Test of updatePerson method, of class PersonFacadeImpl.
      */
-    @org.junit.Test
-    public void testUpdatePerson() {
-        System.out.println("updatePerson");
-        Person person = instance.getPerson(1L);
-        person.setFirstName("TestUser");
-        person.setLastName("UserTest");
-        Person expResult = person;
-        Person result = instance.updatePerson(person);
-        assertEquals(expResult, result);
-    }
+//    @org.junit.Test
+//    public void testUpdatePerson() {
+//        System.out.println("updatePerson");
+//        Person person = instance.getPerson(1L);
+//        person.setFirstName("TestUser");
+//        person.setLastName("UserTest");
+//        Person expResult = person;
+//        Person result = instance.updatePerson(person);
+//        assertEquals(expResult, result);
+//    }
 
     /**
      * Test of getPerson method, of class PersonFacadeImpl.
