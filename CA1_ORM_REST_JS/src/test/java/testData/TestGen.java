@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Generator {
+public class TestGen {
 
     private Random r = new Random();
 
@@ -19,7 +19,7 @@ public class Generator {
 
     long id = 0;
 
-    public Generator(int count) {
+    public TestGen(int count) {
         generate(count);
     }
 
@@ -96,7 +96,7 @@ public class Generator {
         c.setId(id);
         id++;
         c.setName(firstName[r.nextInt(10)] + lastName[r.nextInt(10)] + erhverv[r.nextInt(6)]);
-        c.setCvr(r.nextInt(800) + 100);
+        c.setCvr("CVR GOES HERE");
         c.setNumEmployees(r.nextInt(100) + 1);
         c.setMarketValue(r.nextInt(10000) + 1);
         c.setAddress(a);

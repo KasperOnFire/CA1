@@ -18,16 +18,16 @@ public class CityInfo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long zip;
+    private int zip;
     private String city;
     @OneToMany(mappedBy = "city", cascade = CascadeType.PERSIST)
     private List<Address> addresses;
 
-    public Long getZip() {
+    public int getZip() {
         return zip;
     }
 
-    public void setZip(Long zip) {
+    public void setZip(int zip) {
         this.zip = zip;
     }
 
@@ -45,8 +45,7 @@ public class CityInfo implements Serializable {
 
     /**
      *
-     * @param addresses
-     * A List of addresses in the current city.
+     * @param addresses A List of addresses in the current city.
      */
     public void setAddresses(List<Address> addresses) {
         this.addresses = addresses;

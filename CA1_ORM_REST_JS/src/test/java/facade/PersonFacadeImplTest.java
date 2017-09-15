@@ -13,7 +13,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import static org.junit.Assert.*;
-import testData.Generator;
+import testData.TestGen;
 
 /**
  *
@@ -38,7 +38,7 @@ public class PersonFacadeImplTest {
 
     @Before
     public void setUp() {
-        instance = new PersonTestFacade(new Generator(10));
+        instance = new PersonTestFacade(new TestGen(10));
     }
 
     @After
@@ -68,20 +68,6 @@ public class PersonFacadeImplTest {
         long id = 3;
         Person expResult = instance.getPerson(id);
         Person result = instance.deletePerson(id);
-        assertEquals(expResult, result);
-    }
-
-    /**
-     * Test of updatePerson method, of class PersonFacadeImpl.
-     */
-    @org.junit.Test
-    public void testUpdatePerson() {
-        System.out.println("updatePerson");
-        Person person = instance.getPerson(1L);
-        person.setFirstName("TestUser");
-        person.setLastName("UserTest");
-        Person expResult = person;
-        Person result = instance.updatePerson(person);
         assertEquals(expResult, result);
     }
 

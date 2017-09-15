@@ -4,13 +4,13 @@ import entity.Person;
 import interfaces.PersonFacadeInterface;
 import java.util.ArrayList;
 import java.util.List;
-import testData.Generator;
+import testData.TestGen;
 
 public class PersonTestFacade implements PersonFacadeInterface {
 
-    public Generator gen;
+    public TestGen gen;
 
-    public PersonTestFacade(Generator gen) {
+    public PersonTestFacade(TestGen gen) {
         this.gen = gen;
     }
 
