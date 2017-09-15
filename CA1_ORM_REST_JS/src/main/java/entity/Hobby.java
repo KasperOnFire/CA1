@@ -2,12 +2,10 @@ package entity;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -27,8 +25,7 @@ public class Hobby implements Serializable {
     private Long id;
     private String name;
     private String description;
-    @ManyToMany(mappedBy = "hobbies", cascade = CascadeType.PERSIST)
-    private List<Person> persons;
+    
 
     public Hobby(String name, String desc) {
     }
@@ -60,16 +57,5 @@ public class Hobby implements Serializable {
         this.description = description;
     }
 
-    public List<Person> getPersons() {
-        return persons;
-    }
-
-    /**
-     *
-     * @param persons A List containing all persons with a specific hobby.
-     */
-    public void setPersons(List<Person> persons) {
-        this.persons = persons;
-    }
 
 }
