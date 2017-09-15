@@ -72,6 +72,7 @@ public class PersonFacadeImplTest {
     }
 
     /**
+
      * Test of getPerson method, of class PersonFacadeImpl.
      */
     @org.junit.Test
