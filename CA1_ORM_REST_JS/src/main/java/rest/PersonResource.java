@@ -38,12 +38,12 @@ public class PersonResource {
     private PersonFacadeImpl pfi = new PersonFacadeImpl();
 
     @GET
-    @Path("complete/")
+    @Path("complete")
     @Produces(MediaType.APPLICATION_JSON)
     public String getJson() {
         List<Person> pl = pfi.getAllPersons();
         if(pl == null){
-            throw new WebApplicationException();
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
         
         return gson.toJson(pl);
@@ -114,4 +114,7 @@ public class PersonResource {
         pfi.createPerson(p);
         return gson.toJson(p);
     }
+    
+   
+    
 }
