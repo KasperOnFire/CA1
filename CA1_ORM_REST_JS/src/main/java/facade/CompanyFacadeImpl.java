@@ -71,7 +71,7 @@ public class CompanyFacadeImpl implements CompanyFacadeInterface {
         List<Company> companies = new ArrayList();
         try {
             em.getTransaction().begin();
-            Query q = em.createQuery("Select Company c from Company");
+            Query q = em.createQuery("Select c from Company c");
             companies = q.getResultList();
 
         } finally {
