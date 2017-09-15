@@ -44,10 +44,9 @@ public class PersonResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String getJson() {
         List<Person> pl = pfi.getAllPersons();
-        if(pl == null){
+        if (pl == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
-        
         return gson.toJson(pl);
     }
 
@@ -56,9 +55,9 @@ public class PersonResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String getByIdJson(@PathParam("id") int id) {
         Person p = pfi.getPerson(id);
-        
-        if(p == null){
-           throw new WebApplicationException(Response.Status.NOT_FOUND);
+
+        if (p == null) {
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
         return gson.toJson(p);
     }
@@ -67,12 +66,12 @@ public class PersonResource {
     @Path("contactinfo")
     @Produces(MediaType.APPLICATION_JSON)
     public String getContactAll() {
-        ArrayList<Person> per1 = (ArrayList<Person>) pfi.getAllPersons();
-        
-        if(per1 == null){
-           throw new WebApplicationException(Response.Status.NOT_FOUND);
+        List<Person> per1 = pfi.getAllPersons();
+
+        if (per1 == null) {
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
-        
+
         ArrayList<Person> personsContact = new ArrayList();
         for (Person op : per1) {
             Person p = new Person();
@@ -81,7 +80,7 @@ public class PersonResource {
             p.setLastName(op.getLastName());
             p.setEmail(op.getEmail());
             p.setPhone(op.getPhone());
-           // p.setAddress(op.getAddress());
+            p.setAddress(op.getAddress());
             personsContact.add(p);
         }
         return gson.toJson(personsContact);
@@ -92,8 +91,8 @@ public class PersonResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String getContactFromId(@PathParam("id") int id) {
         Person op = pfi.getPerson(id);
-        if(op == null){
-           throw new WebApplicationException(Response.Status.NOT_FOUND);
+        if (op == null) {
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
         Person p = new Person();
         p.setId(op.getId());
@@ -110,25 +109,26 @@ public class PersonResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String postJson(String content) {
         Person p = gson.fromJson(content, Person.class);
-        if(p == null){
-           throw new WebApplicationException(Response.Status.NOT_FOUND);
+        if (p == null) {
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
         pfi.createPerson(p);
         return gson.toJson(p);
     }
-    
-   @DELETE
+
+    @DELETE
+    @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String deleteJson(@PathParam("id") long id){
-      Person p = pfi.getPerson(id); 
-      
-      if(p == null){
-           throw new WebApplicationException(Response.Status.NOT_FOUND);
+    public String deleteJson(@PathParam("id") long id) {
+        Person p = pfi.getPerson(id);
+
+        if (p == null) {
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
-      
-      pfi.deletePerson(id);
-      return gson.toJson(p);
-      
+
+        pfi.deletePerson(id);
+        return gson.toJson(p);
+
     }
-    
+
 }
