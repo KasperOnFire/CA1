@@ -5,9 +5,8 @@
  */
 package facade;
 
-import interfaces.PersonFacadeInterface;
 import entity.Person;
-import java.util.ArrayList;
+import interfaces.PersonFacadeInterface;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -79,19 +78,13 @@ public class PersonFacadeImpl implements PersonFacadeInterface {
     public List<Person> getAllPersons() {
         em = emf.createEntityManager();
         try {
+            em.getTransaction().begin();
             Query q = em.createQuery("Select p from Person p");
+            em.getTransaction().commit();
             return q.getResultList();
         } finally {
             em.close();
         }
     }
 
-    private void populate(){
-        ArrayList<Person> persons = new ArrayList();
-        for (long i = 0; i < 10; i++) {
-            Person p = new Person();
-            p.setId(i);
-            
-        }
-    }
 }
