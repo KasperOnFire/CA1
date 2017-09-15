@@ -7,6 +7,7 @@ package rest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import entity.Company;
 import entity.Person;
 import facade.PersonFacadeImpl;
 import java.util.ArrayList;
@@ -15,11 +16,14 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
  * REST Web Service
@@ -36,10 +40,14 @@ public class PersonResource {
     private PersonFacadeImpl pfi = new PersonFacadeImpl();
 
     @GET
-    @Path("complete/")
+    @Path("complete")
     @Produces(MediaType.APPLICATION_JSON)
     public String getJson() {
-        return gson.toJson(pfi.getAllPersons());
+        List<Person> pl = pfi.getAllPersons();
+        if (pl == null) {
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
+        }
+        return gson.toJson(pl);
     }
 
     @GET
@@ -47,6 +55,10 @@ public class PersonResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String getByIdJson(@PathParam("id") int id) {
         Person p = pfi.getPerson(id);
+
+        if (p == null) {
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
+        }
         return gson.toJson(p);
     }
 
@@ -55,6 +67,11 @@ public class PersonResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String getContactAll() {
         List<Person> per1 = pfi.getAllPersons();
+
+        if (per1 == null) {
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
+        }
+
         ArrayList<Person> personsContact = new ArrayList();
         for (Person op : per1) {
             Person p = new Person();
@@ -63,7 +80,7 @@ public class PersonResource {
             p.setLastName(op.getLastName());
             p.setEmail(op.getEmail());
             p.setPhone(op.getPhone());
-           // p.setAddress(op.getAddress());
+            p.setAddress(op.getAddress());
             personsContact.add(p);
         }
         return gson.toJson(personsContact);
@@ -74,6 +91,9 @@ public class PersonResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String getContactFromId(@PathParam("id") int id) {
         Person op = pfi.getPerson(id);
+        if (op == null) {
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
+        }
         Person p = new Person();
         p.setId(op.getId());
         p.setFirstName(op.getFirstName());
@@ -89,7 +109,26 @@ public class PersonResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String postJson(String content) {
         Person p = gson.fromJson(content, Person.class);
+        if (p == null) {
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
+        }
         pfi.createPerson(p);
         return gson.toJson(p);
     }
+
+    @DELETE
+    @Path("{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String deleteJson(@PathParam("id") long id) {
+        Person p = pfi.getPerson(id);
+
+        if (p == null) {
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
+        }
+
+        pfi.deletePerson(id);
+        return gson.toJson(p);
+
+    }
+
 }
