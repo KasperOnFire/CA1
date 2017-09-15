@@ -11,6 +11,7 @@ and open the template in the editor.
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+        <script src="JavaScript/companyScript.js"></script>
         <link type="text/css" rel="stylesheet" href="CSS/CAGROUP5.css" > 
     </head> 
     <body>
@@ -40,9 +41,17 @@ and open the template in the editor.
                 </div> 
             </div> 
         </nav> 
-        <form action="/action_page.php">
-            Phone number: <input type="text" name="FirstName" value="Mickey"><br>
-            <input type="submit" value="Submit">
+        <div id = "companyPost">
+        <form>
+             Company Name: <input type="text" id="CompanyName" value=""><br>
+             Company Description: <input type="text" id="CompanyDescription" value=""><br>
+             Company CVR: <input type="text" id="CompanyCVR" value=""><br>
+             Company number of employees: <input type="text" id="CompanyNumEmp" value=""><br>
+             Company market value: <input type="text" id="CompanyValue" value=""><br>
+             <button id ="createComp" onclick="createCompany()" name="Submit">Submit</button>
         </form>
+        </div>
+        
+        
     </body>
 </html>
