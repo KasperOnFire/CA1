@@ -11,6 +11,8 @@ import javax.persistence.Query;
 
 /**
  *
+ * Facade for persisting entities of the Company class
+ * 
  * @author Kasper RB
  */
 public class CompanyFacadeImpl implements CompanyFacadeInterface {
@@ -18,6 +20,7 @@ public class CompanyFacadeImpl implements CompanyFacadeInterface {
     private static EntityManagerFactory emf;
     private static EntityManager em;
 
+ 
     public CompanyFacadeImpl() {
         emf = Persistence.createEntityManagerFactory("COS5");
     }
