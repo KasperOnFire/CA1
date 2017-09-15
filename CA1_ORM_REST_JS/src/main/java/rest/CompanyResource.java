@@ -28,7 +28,7 @@ import javax.ws.rs.core.Response;
  *
  * @author KnaldeKalle
  */
-@Path("Company")
+@Path("company")
 public class CompanyResource {
 
     @Context
