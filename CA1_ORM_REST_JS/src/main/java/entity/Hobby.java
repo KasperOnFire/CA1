@@ -30,6 +30,12 @@ public class Hobby implements Serializable {
     @ManyToMany(mappedBy = "hobbies", cascade = CascadeType.PERSIST)
     private List<Person> persons;
 
+    public Hobby(String name, String desc) {
+    }
+
+    public Hobby() {
+    }
+
     public Long getId() {
         return id;
     }
@@ -59,13 +65,11 @@ public class Hobby implements Serializable {
     }
 
     /**
-     * 
-     * @param persons 
-     * A List containing all persons with a specific hobby.
+     *
+     * @param persons A List containing all persons with a specific hobby.
      */
     public void setPersons(List<Person> persons) {
         this.persons = persons;
     }
-    
 
 }

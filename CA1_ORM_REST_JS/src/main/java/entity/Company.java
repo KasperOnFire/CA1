@@ -9,9 +9,9 @@ public class Company extends InfoEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     private String name;
     private String description;
-    private int cvr;
+    private String cvr;
     private int numEmployees;
-    private int marketValue;
+    private String marketValue;
 
     public String getName() {
         return name;
@@ -29,11 +29,11 @@ public class Company extends InfoEntity implements Serializable {
         this.description = description;
     }
 
-    public int getCvr() {
+    public String getCvr() {
         return cvr;
     }
 
-    public void setCvr(int cvr) {
+    public void setCvr(String cvr) {
         this.cvr = cvr;
     }
 
@@ -45,11 +45,11 @@ public class Company extends InfoEntity implements Serializable {
         this.numEmployees = numEmployees;
     }
 
-    public int getMarketValue() {
+    public String getMarketValue() {
         return marketValue;
     }
 
-    public void setMarketValue(int marketValue) {
+    public void setMarketValue(String marketValue) {
         this.marketValue = marketValue;
     }
 
