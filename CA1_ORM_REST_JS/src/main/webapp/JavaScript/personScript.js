@@ -2,15 +2,13 @@ function createPerson() {
 
     var firstName = document.getElementById("firstName").value;
     var lastName = document.getElementById("lastName").value;
-    
 
-    var apiLink = "http://localhost:8084/CA1_ORM_REST_JS/api/person";
+
+    var apiLink = "api/person";
 
     var newPerson = {
-
-        firstName: companyName,
-        lastName: companyDesc,
-
+        firstName: firstName,
+        lastName: lastName,
     };
 
     var data = JSON.stringify(newPerson);
@@ -31,5 +29,3 @@ function createPerson() {
 
 
 }
-
-

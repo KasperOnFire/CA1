@@ -6,7 +6,7 @@ function createCompany() {
     var companyNumEmp = document.getElementById("CompanyNumEmp").value;
     var companyValue = document.getElementById("CompanyValue").value;
 
-    var apiLink = "http://localhost:8084/CA1_ORM_REST_JS/api/company";
+    var apiLink = "api/company";
 
     var newCompany = {
 
