@@ -98,7 +98,7 @@ public class TestGen {
         c.setName(firstName[r.nextInt(10)] + lastName[r.nextInt(10)] + erhverv[r.nextInt(6)]);
         c.setCvr("CVR GOES HERE");
         c.setNumEmployees(r.nextInt(100) + 1);
-        c.setMarketValue(r.nextInt(10000) + 1);
+        c.setMarketValue("MARKETVALUE HERE");
         c.setAddress(a);
         Phone ph = new Phone();
         ph.setNumber("" + r.nextInt(100000) + 90000);
