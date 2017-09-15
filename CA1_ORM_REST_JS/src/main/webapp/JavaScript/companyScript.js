@@ -5,6 +5,8 @@
  */
 
 
+
+
 function createCompany(){
 
 var companyName = document.getElementById("companyName").value;
