@@ -1,14 +1,10 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,12 +15,10 @@ public class CityInfo implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int zip;
+    private long zip;
     private String city;
-    @OneToMany(mappedBy = "city", cascade = CascadeType.PERSIST)
-    private List<Address> addresses;
 
-    public int getZip() {
+    public long getZip() {
         return zip;
     }
 
@@ -38,18 +32,6 @@ public class CityInfo implements Serializable {
 
     public void setCity(String city) {
         this.city = city;
-    }
-
-    public List<Address> getAddresses() {
-        return addresses;
-    }
-
-    /**
-     *
-     * @param addresses A List of addresses in the current city.
-     */
-    public void setAddresses(List<Address> addresses) {
-        this.addresses = addresses;
     }
 
 }

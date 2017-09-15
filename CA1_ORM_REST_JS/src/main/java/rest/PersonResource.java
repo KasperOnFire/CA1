@@ -79,7 +79,7 @@ public class PersonResource {
             p.setLastName(op.getLastName());
             p.setEmail(op.getEmail());
             p.setPhone(op.getPhone());
-            p.setAddress(op.getAddress());
+           // p.setAddress(op.getAddress());
             personsContact.add(p);
         }
         return gson.toJson(personsContact);
