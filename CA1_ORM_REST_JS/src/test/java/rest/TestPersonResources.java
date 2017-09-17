@@ -6,8 +6,6 @@
 package rest;
 
 import static io.restassured.RestAssured.given;
-import java.util.HashMap;
-import java.util.Map;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 import org.junit.Test;
