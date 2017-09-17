@@ -35,32 +35,57 @@
             </div>
         </div>
     </nav>
-    <div id="authors">Kristian Krog, Anton Kornholt, Kasper Vink og Kasper Breindal</div>
-    <div id="class">COS</div>
-    <div id="group">5</div>
+    <div class="text-center well">
+        <div id="authors">Kristian Krog, Anton Kornholt, Kasper Vink og Kasper Breindal</div>
+        <div id="class">COS</div>
+        <div id="group">5</div>
+    </div>
     <div class="container text-center">
         <h3>Vælg noget data du vil manipulere fra fanen i toppen</h3><br>
         <div class="row">
-            <div class="col-sm-1">
+            <div class="col-sm-12">
                 <div class="well">
                     <p>On this site you can easily create, read, update and delete information about specific objects</p>
                 </div>
                 <div class="well">
                     <p>After you have chosen a subject you can edit them</p>
                 </div>
-
+                <div class="well">
+                    This REST API can get a person or a company from a database. <br> It can also insert into the database
+                    via POST. <br> All results are in JSON format. <br> All Commands are prefetched with: http://dev.breindal.me/CA1_ORM_REST_JS/api/
+                    <br>
+                </div>
+                <div class="well">
+                    commands include for persons:<br> /person/complete - returns all persons in database.<br> /person/complete/id
+                    - substitute ID with the ID of the person you want. Persons are ID 51-100. <br> /person/contactinfo -
+                    returns all persons, but only their contactinfo. <br> /person/contactinfo/id -substitute ID with id of
+                    a person you want the contactinfo off. <br> /person - POST request - send a post request and add the
+                    person in json format to the database. <br> /person/id - delete the person with the specific id.
+                </div>
+                <div class="well">
+                    Commands for Company:<br> /company/complete - get all companies with all info.<br> /company/complete/id
+                    - sub id for id of company. IDs for company are 1-50.<br> /company/id - delete company with this id.<br>                    /comany - POST - Add the company in json to the database.
+                </div>
+                <div class="well">
+                    Who did what:<br> Kasper Vink did the REST API's and REST Assured Testing.<br> Anton did most of the
+                    HTML/CSS and JS for the web pages.<br> Kristian made the test data generator and assisted with the html.<br>                    Kasper RB did the facades, the entity classes, unit testing and the server/db management.<br>
+                </div>
+                <div class="well">
+                    All test data is generated, and is by no means actual data of actual persons.<br> Most data is generated
+                    with help from mockaroo.com.
                 </div>
             </div>
         </div>
-        <br>
-        <footer class="container-fluid text-center">
-            <div class="pull-left">
-                Semi Big Data - Data Road 1337 - 1337 Data Town - CVR-nr. 13371377
-            </div>
-            <div class="pull-right">
-                All data are fake don't sue please!
-            </div>
-        </footer>
+    </div>
+    <br>
+    <footer class="container-fluid text-center">
+        <div class="pull-left">
+            Semi Big Data - Data Road 1337 - 1337 Data Town - CVR-nr. 13371377
+        </div>
+        <div class="pull-right">
+            All data are fake don't sue please!
+        </div>
+    </footer>
 </body>
 
 </html>

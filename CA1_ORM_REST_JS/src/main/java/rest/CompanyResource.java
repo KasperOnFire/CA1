@@ -83,6 +83,7 @@ public class CompanyResource {
     
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
+    @Path("{id}")
     public String deleteJson(@PathParam("id") long id){
       Company c = cfi.getCompany(id); 
       
